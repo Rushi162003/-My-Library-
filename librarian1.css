@@ -1,0 +1,134 @@
+.col-2 .vul {
+    float: left;
+
+}
+
+button:hover {
+    background-color: rgba(128, 128, 128, 0.51);
+}
+body{
+    background-color: #FFF3CF;
+
+}
+.main {
+    padding-top: 20px;
+    padding-left: 50px;
+    width: 100vw;
+    height: 100vh;
+    /* float: right; */
+    /* background-color: yellow; */
+}
+
+.vul .vli {
+    font-size: 20px;
+    margin-top: 20px;
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+}
+
+.vli a {
+    color: white;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+.vli:hover {
+    background-color: #011222;
+}
+
+#div10 {
+    margin: 10px;
+    margin-left: 5px;
+    background-color: black;
+    height: 120px;
+    display: flex;
+    align-items: center;
+}
+
+.student-profile i {
+    /* background-color: rgba(221, 0, 255, 0.425); */
+    background-color: #f8f8ff;
+    color: #0c0c0c;
+    padding: 40px 25px;
+    border-radius: 50%;
+}
+
+#student-name {
+    margin-bottom: -20px;
+    background-color: #f8f8ff;
+    color: #0c0c0c;
+    border-radius: 5px;
+    margin-left: 20px;
+    margin-top: 50px;
+}
+
+#student-name p {
+    padding: 5px 15px;
+    margin-bottom: -.1px;
+}
+
+
+#no-std {
+    position: absolute;
+    margin-left: 150px;
+    font-size: 40px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: white;
+}
+
+#div2 {
+    margin: 10px;
+    margin-left: 5px;
+    background-color: black;
+    height: 120px;
+    display: flex;
+    align-items: center;
+}
+
+#div3 {
+    margin: 10px;
+    margin-left: 5px;
+    background-color: black;
+    height: 120px;
+    display: flex;
+    align-items: center;
+}
+
+#div4 {
+    margin: 10px;
+    margin-left: 5px;
+    background-color: black;
+    height: 120px;
+    display: flex;
+    align-items: center;
+}
+
+.droupdown a {
+    z-index: 1;
+    padding-top: -30px;
+}
+
+.menu li {
+    list-style-type: none;
+    display: inline-block;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.menu {
+    text-align: center;
+    text-decoration: none;
+}
+
+.menu h2 {
+    position: absolute;
+    text-align: start;
+}
+
+.menu .user-icon {
+    position: absolute;
+    text-align: end;
+}

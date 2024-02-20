@@ -1,0 +1,17 @@
+body{
+    background-color: #FFF3CF;
+}
+#right-col{
+    float: right;
+}
+#right-col img{
+    margin: 10px;
+    height: 600px;
+    width: 500px;
+    margin-right: -100px;
+}
+#content
+{
+    margin-top: 50px;
+    text-align: center;
+}
