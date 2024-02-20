@@ -9,8 +9,446 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Library Managment System</title>
-    <link rel="stylesheet" href="style.css">
 </head>
+<style>
+    body {
+        background-color: #FFF3CF;
+    }
+
+    #right-col {
+        margin-top: 30px;
+    }
+
+    #right-col img {
+        float: right;
+        margin: 10px;
+        height: 600px;
+        width: 600px;
+        /* margin-right: 100px; */
+    }
+
+    #left-col {
+        margin-top: 130px;
+        display: flex;
+        justify-content: center;
+        padding-left: 50px;
+
+    }
+
+    .prompt h1 {
+        font-size: 50px;
+    }
+
+    .prompt p {
+        line-height: 30px;
+        font-size: 20px;
+    }
+
+    .btn {
+        border-radius: 10px;
+        /* height: 40px; */
+    }
+
+    #secound_div {
+        display: flex;
+        justify-content: center;
+    }
+
+    #secound_div .col-3 {
+        /* text-align: center; */
+        margin: 20px;
+        height: 150px;
+        background-color: #C9D7DD;
+        border-radius: 15px;
+    }
+
+    #secound_div .col-5 {
+        float: right;
+        margin-right: -10px;
+    }
+
+    .col-5 img {
+        overflow: hidden;
+        width: 150px;
+        border-radius: 50px 10px 10px 0px;
+    }
+
+    /* #secound_div{
+
+display: flex;
+align-items: center;
+} */
+    #secound_div .col-7 {
+        float: left;
+        margin-top: 20px;
+        margin-left: 10px;
+    }
+
+    #digital-resources {
+        background-color: rgba(207, 205, 202, 255);
+    }
+
+    #secound_div .btn {
+        background-color: cadetblue;
+        border-radius: 50px;
+
+    }
+
+    /* 
+#about-info {
+    text-align: center;
+    height: 100px;
+    width: 100%;
+} */
+    /* 
+#about-info p {
+    margin-top: 50px;
+    font-size: 17px;
+    font-weight: 600;
+} */
+    #key-feature p {
+        line-height: 25px;
+    }
+
+    #image {
+        margin-top: 30px;
+        /* float: right; */
+        margin-left: 150px;
+        height: 350px;
+        width: 400px;
+        margin-bottom: 100px;
+    }
+
+    #contact-info {
+        height: 300px;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        /* background-color: #0e1e39; */
+    }
+
+    #contact-info p {
+        float: right;
+        line-height: 25px;
+        font-weight: 600;
+    }
+
+    #contact-us .icon li {
+        float: right;
+        display: inline;
+        list-style: none;
+        margin: 10px;
+        /* margin-bottom: 20px; */
+    }
+
+    #contact-us .icon li:hover {
+        scale: 1.1;
+        /* margin-top: -.1px; */
+        transition: all ease .4s;
+    }
+
+    .icon {
+        height: 50px;
+
+    }
+
+    .about-company {
+        list-style-type: none;
+    }
+
+    .contact-info {
+        list-style-type: none;
+        margin-left: -50px;
+    }
+
+    .contact-info li {
+
+        margin-bottom: 10px;
+        font-weight: 600;
+    }
+
+    .fa-github:hover {
+        animation: github .7s 1;
+        color: #333;
+    }
+
+    @keyframes github {
+        100% {
+            transform: rotatey(360deg);
+        }
+    }
+
+    .fa-linkedin:hover {
+        animation: linkedin .7s 1;
+        color: #0077b5;
+    }
+
+    @keyframes linkedin {
+        100% {
+            transform: rotatey(360deg);
+        }
+    }
+
+    .fa-instagram:hover {
+        animation: instagram .7s 1;
+        color: #e95950;
+    }
+
+    @keyframes instagram {
+        100% {
+            transform: rotatey(360deg);
+        }
+    }
+
+    .fa-facebook:hover {
+        animation: facebook .7s 1;
+        color: #316FF6;
+    }
+
+    @keyframes facebook {
+        100% {
+            transform: rotatey(360deg);
+        }
+
+        50% {}
+    }
+
+
+    /* login details  */
+
+    .login {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1000;
+        background-color: hsla(230, 75%, 15%, .1);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+        /* For safari */
+        padding: 8rem 1.5rem 0;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity .4s;
+    }
+
+    .login__close {
+        position: absolute;
+        top: 2rem;
+        right: 50rem;
+        font-size: 1.5rem;
+        color: hsl(230, 75%, 15%);
+        cursor: pointer;
+    }
+
+    .login__form,
+    .login__group {
+        display: grid;
+    }
+
+    .login__form {
+        background-color: hsl(230, 100%, 97%);
+        padding: 2rem 1.5rem 2.5rem;
+        box-shadow: 0 8px 32px hsla(230, 75%, 15%, .2);
+        border-radius: 1rem;
+        row-gap: 1.25rem;
+        text-align: center;
+        transform: translateY(-1rem);
+        transition: transform .4s;
+        width: 33%;
+        height: 80;
+        position: absolute;
+        top: 20%;
+        left: 30%;
+        transform: translateX(-25px) translateY(-25%);
+    }
+
+    .login__title {
+        font-size: 1.25rem;
+        color: hsl(230, 75%, 15%);
+    }
+
+    .login__group {
+        row-gap: 1rem;
+    }
+
+    .login__label {
+        display: block;
+        text-align: initial;
+        color: hsl(230, 75%, 15%);
+        font-weight: 500;
+        margin-bottom: .25rem;
+    }
+
+    .login__input {
+        width: 100%;
+        background-color: hsl(230, 100%, 97%);
+        border: 2px solid hsl(230, 25%, 80%);
+        padding: 1rem;
+        border-radius: .5rem;
+        color: hsl(230, 12%, 40%);
+    }
+
+    .login__input::placeholder {
+        color: hsl(230, 12%, 40%);
+    }
+
+    .login__signup {
+        margin-bottom: .5rem;
+    }
+
+    .login__signup a {
+        color: hsl(230, 75%, 56%);
+    }
+
+    .login__forgot {
+        display: inline-block;
+        color: hsl(230, 75%, 56%);
+        margin-bottom: 1.25rem;
+    }
+
+    .login__button {
+        display: inline-block;
+        background-color: hsl(230, 75%, 56%);
+        width: 100%;
+        color: #fff;
+        font-weight: 600;
+        padding: 1rem;
+        border-radius: .5rem;
+        cursor: pointer;
+        transition: box-shadow .4s;
+    }
+
+    .login__button:hover {
+        box-shadow: 0 4px 24px hsla(230, 75%, 40%, .4);
+    }
+
+    /* Show login */
+
+    .show-login {
+        opacity: 1;
+        pointer-events: initial;
+    }
+
+    .show-login .login__form {
+        transform: translateY(0rem);
+    }
+
+    .signup {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1000;
+        background-color: hsla(230, 75%, 15%, .1);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+        /* For safari */
+        padding: 8rem 1.5rem 0;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity .4s;
+    }
+
+    .signup__close {
+        position: absolute;
+        top: 2rem;
+        right: 50rem;
+        font-size: 1.5rem;
+        color: hsl(230, 75%, 15%);
+        cursor: pointer;
+    }
+
+    .signup__form,
+    .signup__group {
+        display: grid;
+    }
+
+    .signup__form {
+        background-color: hsl(230, 100%, 97%);
+        padding: 2rem 1.5rem 2.5rem;
+        box-shadow: 0 8px 32px hsla(230, 75%, 15%, .2);
+        border-radius: 1rem;
+        row-gap: 1.25rem;
+        text-align: center;
+        transform: translateY(-1rem);
+        transition: transform .4s;
+        width: 33%;
+        height: 80;
+        position: absolute;
+        top: 10%;
+        left: 30%;
+        transform: translateX(-25px) translateY(-25%);
+    }
+
+    .signup__title {
+        font-size: 1.25rem;
+        color: hsl(230, 75%, 15%);
+    }
+
+    .signup__group {
+        row-gap: 1rem;
+    }
+
+    .signup__label {
+        display: block;
+        text-align: initial;
+        color: hsl(230, 75%, 15%);
+        font-weight: 500;
+        margin-bottom: .25rem;
+    }
+
+    .signup__input {
+        width: 100%;
+        background-color: hsl(230, 100%, 97%);
+        border: 2px solid hsl(230, 25%, 80%);
+        padding: 1rem;
+        border-radius: .5rem;
+        color: hsl(230, 12%, 40%);
+    }
+
+    .signup__input::placeholder {
+        color: hsl(230, 12%, 40%);
+    }
+
+    .signup__signup {
+        margin-bottom: .5rem;
+    }
+
+    .signup__signup a {
+        color: hsl(230, 75%, 56%);
+    }
+
+    .signup__forgot {
+        display: inline-block;
+        color: hsl(230, 75%, 56%);
+        margin-bottom: 1.25rem;
+    }
+
+    .signup__button {
+        display: inline-block;
+        background-color: hsl(230, 75%, 56%);
+        width: 100%;
+        color: #fff;
+        font-weight: 600;
+        padding: 1rem;
+        border-radius: .5rem;
+        cursor: pointer;
+        transition: box-shadow .4s;
+    }
+
+
+    .show-signup {
+        opacity: 1;
+        pointer-events: initial;
+    }
+
+    .show-signup .signup__form {
+        transform: translateY(0rem);
+    }
+</style>
 
 <body>
 
@@ -334,11 +772,11 @@
             // return true;
         }
     }
-    function checkRadio1(){
-        if(document.getElementById('librarian').checked){
+
+    function checkRadio1() {
+        if (document.getElementById('librarian').checked) {
             window.open('librarian1.php');
-        }
-        else{
+        } else {
             alert("Please checked the check box");
         }
     }
