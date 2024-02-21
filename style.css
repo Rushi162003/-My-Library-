@@ -93,6 +93,12 @@ align-items: center;
     font-size: 17px;
     font-weight: 600;
 } */
+#key{
+    margin-left: 80px;
+}
+#key-info{
+    margin-left: 500px;
+}
 #key-feature p {
     line-height: 25px;
 }

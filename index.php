@@ -64,7 +64,10 @@
 
             <div>
                 <p class="login__signup" style="color:  hsl(230, 75%, 56%);">
-                    You do not have an account? <a href="#">Sign up</a>
+                    You do not have an account? 
+                    <!-- <a href="#">Sign up</a> -->
+                    <a type="button" id="signup-btn-login">Signup</a>
+
                 </p>
 
                 <a href="#" class="login__forgot">
@@ -87,7 +90,7 @@
             <div class="signup__group">
                 <div>
                     <label for="text" class="signup__label">Username</label>
-                    <input type="text" requir placeholder="Enter your name" id="name" class="signup__input">
+                    <input type="text" required placeholder="Enter your name" id="name" class="signup__input">
                 </div>
 
                 <div>
@@ -114,7 +117,10 @@
             </div>
             <div>
                 <p class="signup__signup" style="color:  hsl(230, 75%, 56%);">
-                    You have an already account? <a href="#login">Login</a>
+                    You have an already account?
+                     <!-- <a href="#login">Login</a> -->
+                    <a type="button" id="login-btn-signup">Login</a>
+
                 </p>
 
                 <button type="submit" class="signup__button">Sign Up</button>
@@ -182,7 +188,7 @@
         </div>
         <div class="" id="key">
             <h2 class="text-center mt-5">Key Features of Our LMS</h2>
-            <div class="row">
+            <div class=" container row">
                 <div class="col-7" id="key-feature">
                     <!-- <div class="" id="about-info">
                         <p>At My library management system, we understand the
@@ -203,7 +209,7 @@
                             library has to offer.
                         </p>
                     </div> -->
-                    <div class="row mt-5">
+                    <div id="key-info" class="row mt-5">
                         <div class="col-4">
                             <h5>User-Friendly Interface</h5>
                             <p>Our LMS boasts an intuitive interface, making it easy
@@ -309,6 +315,17 @@
         login.classList.remove('show-login')
     })
 
+    const loginSignupBtn = document.getElementById('signup-btn-login'),
+    logsign = document.getElementById('signup-btn-login')
+
+    loginSignupBtn.addEventListener('click', () => {
+        signup.classList.add('show-signup')
+    })
+
+    logsign.addEventListener('click', () => {
+        login.classList.remove('show-login')
+    })
+  
     const signup = document.getElementById('signup'),
         signupBtn = document.getElementById('signup-btn'),
         signupClose = document.getElementById('signup-close')
@@ -319,6 +336,17 @@
 
     /* signup hidden */
     signupClose.addEventListener('click', () => {
+        signup.classList.remove('show-signup')
+    })
+
+    const signupLoginBtn = document.getElementById('login-btn-signup'),
+    signupCloseLogin = document.getElementById('login-btn-signup')
+
+    signupLoginBtn.addEventListener('click', () => {
+        login.classList.add('show-login')
+    })
+
+    signupCloseLogin.addEventListener('click', () => {
         signup.classList.remove('show-signup')
     })
 
