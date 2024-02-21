@@ -355,7 +355,7 @@
         if (document.getElementById('librarian').checked) {
             window.open('Librarian1.php');
         } else if (document.getElementById('student').checked) {
-            window.open('#');
+            window.open('');
         }
     }
 
