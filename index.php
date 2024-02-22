@@ -84,28 +84,28 @@
     <!-- Show Signup  -->
 
     <div class="signup" id="signup" onsubmit="checkRadio1()">
-        <form action="" class="signup__form">
+        <form action="index_action.php" method="post" class="signup__form">
             <h2 class="signup__title">Sign Up</h2>
 
             <div class="signup__group">
                 <div>
                     <label for="text" class="signup__label">Username</label>
-                    <input type="text" required placeholder="Enter your name" id="name" class="signup__input">
+                    <input type="text" name="username" required placeholder="Enter your name" id="name" class="signup__input">
                 </div>
 
                 <div>
                     <label for="numbar" class="signup__label">Mobile No</label>
-                    <input type="number" required placeholder="Write your number" id="number" class="signup__input">
+                    <input type="number" name="number" required placeholder="Write your number" id="number" class="signup__input">
                 </div>
 
                 <div>
                     <label for="email" class="signup__label">Email</label>
-                    <input type="email" required placeholder="Write your email" id="email" class="signup__input">
+                    <input type="email" name="email" required placeholder="Write your email" id="email" class="signup__input">
                 </div>
 
                 <div>
                     <label for="password" class="signup__label">Password</label>
-                    <input type="password" requir placeholder="Enter your password" id="password" class="signup__input">
+                    <input type="password" name="signup_password" requir placeholder="Enter your password" id="password" class="signup__input">
                 </div>
 
                 <div>
@@ -123,7 +123,7 @@
 
                 </p>
 
-                <button type="submit" class="signup__button">Sign Up</button>
+                <button type="submit" name="submit" class="signup__button">Sign Up</button>
             </div>
         </form>
 
@@ -350,23 +350,23 @@
         signup.classList.remove('show-signup')
     })
 
-    function checkRadio() {
+//     function checkRadio() {
 
-        if (document.getElementById('librarian').checked) {
-            window.open('Librarian1.php');
-        } else if (document.getElementById('student').checked) {
-            window.open('');
-        }
-    }
+//         if (document.getElementById('librarian').checked) {
+//             window.open('Librarian1.php');
+//         } else if (document.getElementById('student').checked) {
+//             window.open('');
+//         }
+//     }
 
-    function checkRadio1() {
-        if (document.getElementById('librarian').checked) {
-            window.open('librarian1.php');
-        }
-        else {
-            window.open('librarian1.php');
-        }
-}
+//     function checkRadio1() {
+//         if (document.getElementById('librarian').checked) {
+//             window.open('librarian1.php');
+//         }
+//         else {
+//             window.open('librarian1.php');
+//         }
+// }
 </script>
 
 </html>
