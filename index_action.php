@@ -12,17 +12,14 @@ if (!$conn) {
     $email = $_POST['email'];
     $pass = $_POST['signup_password'];
     $number = $_POST['number'];
-    $sql1 = "INSERT into `signup`(`username`,`email`,`password`,`mobile`)
-        VALUES($user,$email,$pass,$number)";
-    $query = mysqli_query($conn,$sql1);
+    // $sql1 = "INSERT INTO signup(susername,semail,password,mobile)VALUES('$user','$email','$pass','$number')";
+    $sql1 = "insert into signup(susername,semail,password,mobile)values('$user','$email','$pass','$number')";
+    $query = mysqli_query($conn, $sql1);
     if ($query) {
-        echo "<script>alert('data add ')</script>";
+       echo "<script>alert('data add ')</script>";
+        echo "<script>window.location.href='index.php'</script>";
     } else {
         echo "<script>alert('data not add ')</script>";
     }
-    echo $user;
-    echo $email;
-    echo $pass;
-    echo $number;
-    }
+}
 // }

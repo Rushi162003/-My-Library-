@@ -40,18 +40,18 @@
     <!-- Show Login -->
 
     <div class="login" id="login" onsubmit="checkRadio()">
-        <form action="" class="login__form">
+        <form class="login__form" method='post'>
             <h2 class="login__title">Log In</h2>
 
             <div class="login__group">
                 <div>
                     <label for="email" class="login__label">Email</label>
-                    <input type="email" required placeholder="Write your email" id="email" class="login__input">
+                    <input type="email" name="login_email" required placeholder="Write your email" id="login_email" class="login__input">
                 </div>
 
                 <div>
                     <label for="password" class="login__label">Password</label>
-                    <input type="password" required placeholder="Enter your password" id="password" class="login__input">
+                    <input type="password" name="login_password" required placeholder="Enter your password" id="password" class="login__input">
                 </div>
 
                 <div>
@@ -64,7 +64,7 @@
 
             <div>
                 <p class="login__signup" style="color:  hsl(230, 75%, 56%);">
-                    You do not have an account? 
+                    You do not have an account?
                     <!-- <a href="#">Sign up</a> -->
                     <a type="button" id="signup-btn-login">Signup</a>
 
@@ -74,13 +74,28 @@
                     You forgot your password
                 </a>
 
-                <button type="submit" class="login__button">Log In</button>
+                <button type="submit" name="login" class="login__button">Log In</button>
             </div>
         </form>
 
         <i class="ri-close-line login__close" id="login-close"><i class="fa-solid fa-xmark"></i></i>
     </div>
-
+    <?php
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $database = "my_library";
+    $conn = new mysqli($servername, $username, $password, $database);
+    if (!$conn) {
+        echo "<script>alert('Data base not connected')</script>";
+    } else {
+        if (isset($_POST['login'])) {
+            $user = $_POST['login_email'];
+            $pass = $_POST['login_password'];
+            echo "<script>window.location.href='./StdDashboard/std1.php'</script>";
+        }
+    }
+    ?>
     <!-- Show Signup  -->
 
     <div class="signup" id="signup" onsubmit="checkRadio1()">
@@ -100,7 +115,7 @@
 
                 <div>
                     <label for="email" class="signup__label">Email</label>
-                    <input type="email" name="email" required placeholder="Write your email" id="email" class="signup__input">
+                    <input type="email" name="email" required placeholder="Write your email" id="signup_email" class="signup__input">
                 </div>
 
                 <div>
@@ -109,16 +124,16 @@
                 </div>
 
                 <div>
-                    <input type="radio" required  value="librarian" name="select" id="librarian">
+                    <input type="radio" required value="librarian" name="select" id="librarian">
                     <lable style="color: #0a0a0a;"> Librarian </lable>
-                    <input type="radio" required  value="student" name="select" id="student">
+                    <input type="radio" required value="student" name="select" id="student">
                     <lable style="color: #0a0a0a;"> Student </lable>
                 </div>
             </div>
             <div>
                 <p class="signup__signup" style="color:  hsl(230, 75%, 56%);">
                     You have an already account?
-                     <!-- <a href="#login">Login</a> -->
+                    <!-- <a href="#login">Login</a> -->
                     <a type="button" id="login-btn-signup">Login</a>
 
                 </p>
@@ -316,7 +331,7 @@
     })
 
     const loginSignupBtn = document.getElementById('signup-btn-login'),
-    logsign = document.getElementById('signup-btn-login')
+        logsign = document.getElementById('signup-btn-login')
 
     loginSignupBtn.addEventListener('click', () => {
         signup.classList.add('show-signup')
@@ -325,7 +340,7 @@
     logsign.addEventListener('click', () => {
         login.classList.remove('show-login')
     })
-  
+
     const signup = document.getElementById('signup'),
         signupBtn = document.getElementById('signup-btn'),
         signupClose = document.getElementById('signup-close')
@@ -340,7 +355,7 @@
     })
 
     const signupLoginBtn = document.getElementById('login-btn-signup'),
-    signupCloseLogin = document.getElementById('login-btn-signup')
+        signupCloseLogin = document.getElementById('login-btn-signup')
 
     signupLoginBtn.addEventListener('click', () => {
         login.classList.add('show-login')
@@ -350,23 +365,23 @@
         signup.classList.remove('show-signup')
     })
 
-//     function checkRadio() {
+    //     function checkRadio() {
 
-//         if (document.getElementById('librarian').checked) {
-//             window.open('Librarian1.php');
-//         } else if (document.getElementById('student').checked) {
-//             window.open('');
-//         }
-//     }
+    //         if (document.getElementById('librarian').checked) {
+    //             window.open('Librarian1.php');
+    //         } else if (document.getElementById('student').checked) {
+    //             window.open('');
+    //         }
+    //     }
 
-//     function checkRadio1() {
-//         if (document.getElementById('librarian').checked) {
-//             window.open('librarian1.php');
-//         }
-//         else {
-//             window.open('librarian1.php');
-//         }
-// }
+    //     function checkRadio1() {
+    //         if (document.getElementById('librarian').checked) {
+    //             window.open('librarian1.php');
+    //         }
+    //         else {
+    //             window.open('librarian1.php');
+    //         }
+    // }
 </script>
 
 </html>
