@@ -9,6 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Library Managment System</title>
+    <!-- <link rel="stylesheet" type="style/css" href="style.css"> -->
     <link rel="stylesheet" href="style.css">
 
 </head>
@@ -81,6 +82,7 @@
         <i class="ri-close-line login__close" id="login-close"><i class="fa-solid fa-xmark"></i></i>
     </div>
     <?php
+    // session_start();
     $servername = "localhost";
     $username = "root";
     $password = "";
@@ -92,7 +94,17 @@
         if (isset($_POST['login'])) {
             $user = $_POST['login_email'];
             $pass = $_POST['login_password'];
-            echo "<script>window.location.href='./StdDashboard/std1.php'</script>";
+            $sql = "select * from signup where semail='$user' and password='$pass'";
+            $result = mysqli_query($conn, $sql);
+            if (mysqli_num_rows($result) == 1) {
+                session_start();
+                $_SESSION['auth'] = 'true';
+                $_SESSION['semail'] = $user;
+                header('location:./StdDashboard/std1.php');
+            } else {
+                echo "<script>alert('invilde Username Password')</script>";
+            }
+            // echo "<script>window.location.href='./StdDashboard/std1.php'</script>";
         }
     }
     ?>
